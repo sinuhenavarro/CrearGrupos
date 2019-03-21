@@ -1,0 +1,6 @@
+Vicente:0
+Álvaro:1
+Jesús:2
+María:3
+Teresa:4
+Julián:5

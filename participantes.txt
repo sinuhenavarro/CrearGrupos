@@ -1,0 +1,25 @@
+Antonio José:5,2,1
+Rafael:5,5,3
+Juan Antonio:4,4,1
+Raúl:3,3,4
+Francisco Miguel:1,5,3
+Antonio José:1,4,3
+Antonio Manuel:0,5,5
+Samuel:2,3,3
+Pablo:2,5,5
+Vicente:5,4,4
+Jaime:3,5,1
+Carlos:4,4,4
+David:5,2,3
+Javier:3,0,3
+Omar Jesús:4,0,1
+Samuel:4,2,2
+Miguel Ángel:2,2,2
+Daniel:2,0,2
+Alfonso:1,1,3
+Antonio Javier:3,0,5
+Juan Carlos:3,5,4
+Christian:1,5,3
+Juan:3,5,5
+Jesús Javier:5,0,1
+Verónica:1,1,2
