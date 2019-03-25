@@ -17,7 +17,8 @@ public class Distribucion {
     private int DesequilibrioM; //Diferencia entre el máx y el min de número de módulos que tutoriza un tutor
     private int NModulos; //Media del número de módulos que tutoriza cada tutor
     private ArrayList ListaGrupos;
-
+ 
+    
     /**
      *
      */
