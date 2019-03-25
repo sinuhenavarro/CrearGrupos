@@ -33,49 +33,8 @@ public class Sprint3 {
         m[4] = new Modulo("4");
         m[5] = new Modulo("5");
         
-        FileReader f;
-        BufferedReader b;
-        int i;
-        //-----------------------------------
-        //Leyendo participantes del fichero
-        //----------------------------------
-        try {
-            f = new FileReader("participantes.txt");
-            b = new BufferedReader(f);
-            String cadena; //Se usará para leer una línea de los ficheros
-            while((cadena = b.readLine())!=null) {
-                String [] subcadena = cadena.split(":"); //Separa el nombre y los módulos de la cadena: Pepito : 1,2,3
-                System.out.println(subcadena[0]+subcadena[1]);
-                Participante p = new Participante(subcadena[0],subcadena[1]);
-                //Metiendo a p en cada uno de los 3 módulos que ha elegido
-                i = Integer.parseInt(p.getModulo(0)); //Obtiene en formato int el primer módulo elegido por p
-                m[i].addParticipante(p); //Añade p al primer módulo que ha elegido
-                i = Integer.parseInt(p.getModulo(1)); //Obtiene en formato int el primer módulo elegido por p
-                m[i].addParticipante(p); //Añade p al segunddo módulo que ha elegido
-                i = Integer.parseInt(p.getModulo(2)); //Obtiene en formato int el primer módulo elegido por p
-                m[i].addParticipante(p); //Añade p al tercer módulo que ha elegido     
-            }
-        }catch (FileNotFoundException ex) {
-            Logger.getLogger(Sprint3.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //----------------------------
-        //Leyendo tutores del fichero
-        //---------------------------
-        try {
-            f = new FileReader("tutores.txt");
-            b = new BufferedReader(f);
-            String cadena; //Se usará para leer una línea de los ficheros
-            while((cadena = b.readLine())!=null) {
-                String [] subcadena = cadena.split(":"); //Separa el nombre y la especialidad de la cadena leída del fichero: Pepito:1
-                Tutor t = new Tutor(subcadena[0],Integer.parseInt(subcadena[1]));
-                //Asignado a cada módulo su tutor
-                i = Integer.parseInt(subcadena[1]); //En subcadena[1] está la especialidad de ese tutor
-                m[i].setTutor(t); //Asigna como tutor al módulo del que es especialista t
-
-            }
-        }catch (FileNotFoundException ex) {
-            Logger.getLogger(Sprint3.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        leerParticipantes(m);
+        leerTutores(m);
         //-----------------------------------------------------------------------------------------
         //Comprobando el grado de desequilibrio de número de participantes entre módulos
         //-----------------------------------------------------------------------------------------
@@ -93,7 +52,7 @@ public class Sprint3 {
         int min, max,mmax,mmin;   
         min = max = Nparticipantes[0];
         mmax = mmin = 0;
-        for(i = 0; i < Nparticipantes.length; i++){
+        for(int i = 0; i < Nparticipantes.length; i++){
             if(min>Nparticipantes[i]){
                     min=Nparticipantes[i];
                     mmin = i;
@@ -118,5 +77,57 @@ public class Sprint3 {
 
 
     
+    }
+
+    private static void leerTutores(Modulo[] m) throws NumberFormatException, IOException {
+        //----------------------------
+        //Leyendo tutores del fichero
+        //---------------------------
+        FileReader f;
+        BufferedReader b;
+        int i;
+        try {
+            f = new FileReader("tutores.txt");
+            b = new BufferedReader(f);
+            String cadena; //Se usará para leer una línea de los ficheros
+            while((cadena = b.readLine())!=null) {
+                String [] subcadena = cadena.split(":"); //Separa el nombre y la especialidad de la cadena leída del fichero: Pepito:1
+                Tutor t = new Tutor(subcadena[0],Integer.parseInt(subcadena[1]));
+                //Asignado a cada módulo su tutor
+                i = Integer.parseInt(subcadena[1]); //En subcadena[1] está la especialidad de ese tutor
+                m[i].setTutor(t); //Asigna como tutor al módulo del que es especialista t
+                
+            }
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(Sprint3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private static void leerParticipantes(Modulo[] m) throws NumberFormatException, IOException {
+        FileReader f;
+        BufferedReader b;
+        int i;
+        //-----------------------------------
+        //Leyendo participantes del fichero
+        //----------------------------------
+        try {
+            f = new FileReader("participantes.txt");
+            b = new BufferedReader(f);
+            String cadena; //Se usará para leer una línea de los ficheros
+            while((cadena = b.readLine())!=null) {
+                String [] subcadena = cadena.split(":"); //Separa el nombre y los módulos de la cadena: Pepito : 1,2,3
+                System.out.println(subcadena[0]+subcadena[1]);
+                Participante p = new Participante(subcadena[0],subcadena[1]);
+                //Metiendo a p en cada uno de los 3 módulos que ha elegido
+                i = Integer.parseInt(p.getModulo(0)); //Obtiene en formato int el primer módulo elegido por p
+                m[i].addParticipante(p); //Añade p al primer módulo que ha elegido
+                i = Integer.parseInt(p.getModulo(1)); //Obtiene en formato int el primer módulo elegido por p
+                m[i].addParticipante(p); //Añade p al segunddo módulo que ha elegido
+                i = Integer.parseInt(p.getModulo(2)); //Obtiene en formato int el primer módulo elegido por p
+                m[i].addParticipante(p); //Añade p al tercer módulo que ha elegido
+            }
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(Sprint3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
