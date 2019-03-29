@@ -12,19 +12,16 @@ import java.util.ArrayList;
  * @author sinuhe
  */
 public class Distribucion {
-    private int Puntos;
-    private int DesequilibrioP; //Diferencia entre el máx y el min número de participantes de cada módulo
-    private int DesequilibrioM; //Diferencia entre el máx y el min de número de módulos que tutoriza un tutor
-    private int NModulos; //Media del número de módulos que tutoriza cada tutor
-    private ArrayList ListaGrupos;
+    private int puntos;
+    private ArrayList listaGrupos;
  
     
     /**
      *
      */
     public Distribucion() {
-        this.Puntos = 0;
-        this.ListaGrupos = new ArrayList();
+        this.puntos = 0;
+        this.listaGrupos = new ArrayList();
     }
 
     /**
@@ -32,7 +29,7 @@ public class Distribucion {
      * @return
      */
     public int getPuntos() {
-        return Puntos;
+        return puntos;
     }
 
     /**
@@ -40,7 +37,7 @@ public class Distribucion {
      * @return
      */
     public ArrayList getListaGrupos() {
-        return ListaGrupos;
+        return listaGrupos;
     }
 
     /**
@@ -48,7 +45,7 @@ public class Distribucion {
      * @param puntos
      */
     public void setPuntos(int puntos) {
-        this.Puntos = puntos;
+        this.puntos = puntos;
     }
 
     /**
@@ -56,7 +53,7 @@ public class Distribucion {
      * @param g
      */
     public void addGrupo(Grupo g) {
-        this.ListaGrupos.add(g);
+        this.listaGrupos.add(g);
         this.recalculaPuntos();
     }
 
